@@ -5,7 +5,7 @@ public class ListDemo1 {
 
 	public static void main(String[] args) {
 		//用ArrayList存储编程语言的名称，并输出
-		List list = new ArrayList();
+		List<String> list = new ArrayList<String>();
 		list.add("Java");
 		list.add("C");
 		list.add("C++");
