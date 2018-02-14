@@ -29,7 +29,46 @@ public class CatTest {
 		while(it.hasNext()) {
 			System.out.println(it.next());
 		}
-
+		
+		//重新插入一个新宠物猫
+		Cat huahua02 = new Cat("花花二代", 2, "英国短毛猫");
+		set.add(huahua02);
+		System.out.println("添加花花二代后的宠物猫信息：");
+		it = set.iterator();
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+		
+		System.out.println("***************************");
+		//在集合中查找花花的信息并输出
+		if(set.contains(huahua)) {
+			System.out.println("花花找到了！");
+			System.out.print(huahua);
+		}else {
+			System.out.println("花花没找到！");
+		}
+		
+		//在集合中查找花花的名字的信息
+		System.out.println("***************************");
+		System.out.println("通过名字查找花花信息");
+		boolean flag = false;
+		Cat c = null;
+		it = set.iterator();
+		while(it.hasNext()) {
+			c = (Cat)it.next();
+			if(c.getName().equals("花花")) {
+				flag = true;//找到了
+				break;
+			}
+			
+		}
+		if(flag) {
+			System.out.println("花花找到了");
+			System.out.print(c);
+		}else {
+			System.out.println("花花没找到");
+		}
+		
 	}
 
 }
