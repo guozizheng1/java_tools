@@ -40,7 +40,6 @@ public class Student {
 	public String toString() {
 		return "[学号：" + stuId + ", 姓名：" + name + ", 成绩：" + score + "]";
 	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -54,19 +53,27 @@ public class Student {
 	}
 	@Override
 	public boolean equals(Object obj) {
-		//判断对象是否相等，相等则返回true，不用继续比较属性了
 		if (this == obj)
 			return true;
-		if(obj.getClass() == Student.class) {
-			Student stu = (Student)obj;
-			return (stu.getStuId()==score);
-		}
-		return false;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (Double.doubleToLongBits(score) != Double.doubleToLongBits(other.score))
+			return false;
+		if (stuId != other.stuId)
+			return false;
+		return true;
 	}
 	
+
 	
-	
-	
-	
+		
 
 }

@@ -43,7 +43,7 @@ public class CatTest {
 		//在集合中查找花花的信息并输出
 		if(set.contains(huahua)) {
 			System.out.println("花花找到了！");
-			System.out.print(huahua);
+			System.out.println(huahua);
 		}else {
 			System.out.println("花花没找到！");
 		}
@@ -67,6 +67,44 @@ public class CatTest {
 			System.out.print(c);
 		}else {
 			System.out.println("花花没找到");
+		}
+		
+		//删除花花二代的信息并重新输出
+//		for(Cat cat:set) {
+//			if("花花".equals(cat.getName())) {
+//				set.remove(cat);
+//				break;
+//			}
+//		}
+		
+		//删除年龄小于5个月的猫（如果有多个满足条件的元素需要把他们添加到一个集合当中然后去删除那个集合）
+		Set <Cat> set1 = new HashSet<Cat>();
+		for(Cat cat:set) {
+			if(cat.getMonth()<5) {
+				set1.add(cat);
+			}
+		}
+		set.removeAll(set1);
+		
+		System.out.println("***********************");
+		System.out.println("删除花花二代后的数据");
+		for(Cat cat:set) {
+			System.out.println(cat);
+		}
+		
+		//删除集合中的所有宠物猫信息
+		System.out.println("***********************");
+		//boolean flag1 = set.removeAll(set);
+		set.removeAll(set);
+//		if(flag1) {
+//			System.out.println("猫都不见了。。。。");
+//		}else {
+//			System.out.println("猫还在");
+//		}
+		if(set.isEmpty()) {
+			System.out.println("猫都不见了。。。。");
+		}else {
+			System.out.println("猫还在");
 		}
 		
 	}
