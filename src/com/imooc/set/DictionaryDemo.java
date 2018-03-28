@@ -41,6 +41,8 @@ public class DictionaryDemo {
 		
 		}
 		
+		System.out.println();
+		
 	}
 
 }
