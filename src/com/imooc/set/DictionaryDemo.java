@@ -42,7 +42,23 @@ public class DictionaryDemo {
 		}
 		
 		System.out.println();
+		System.out.println("**********************************");
 		
+		//通过单词找到注释并输出
+		//使用keySet方法
+		String strSearch = console.next();
+		//1.取得keySet
+		Set<String> keySet = animal.keySet();
+		//2.遍历keySet
+		for(String key:keySet) {
+			if(strSearch.equals(key)) {
+				System.out.println("找到了！" + "键值对为：" + key + "-" + animal.get(key));
+				break;
+			}else {
+				System.out.println("没有找到！");
+				break;
+			}
+		}
 	}
 
 }
