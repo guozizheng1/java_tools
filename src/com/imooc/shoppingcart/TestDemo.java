@@ -8,7 +8,7 @@ public class TestDemo {
 
 	//Idea project commit
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Eclipse commit
 
 	}
 
