@@ -14,6 +14,10 @@ public class GoodsInCart {
 		this.num = num;
 	}
 
+	public GoodsInCart() {
+
+	}
+
 	//getter和setter方法
 	public Goods getGoods() {
 		return goods;

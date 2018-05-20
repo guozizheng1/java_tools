@@ -8,11 +8,9 @@ import java.util.Scanner;
 
 public class TestDemo {
 
-    public static Scanner sc = new Scanner(System.in);
-    static boolean  flag = true;
-    static TestDemo td = new TestDemo();
 
-    public void homeMenu(){
+
+    public static void homeMenu(){
         System.out.println("*************************");
         System.out.println("     **主菜单**");
         System.out.println("     1--商品管理");
@@ -21,34 +19,17 @@ public class TestDemo {
         System.out.println("*************************");
     }
 
-    public void goodsManageMenu(){
+    public static void goodsManageMenu(){
         System.out.println("*************************");
         System.out.println("     **商品管理**");
         System.out.println("     1--商品信息导入");
         System.out.println("     2--显示所有商品信息");
         System.out.println("     9--返回上一级菜单");
         System.out.println("*************************");
-        //循环输出操作商品管理菜单
-        while(flag){
-            System.out.println("请输入对应的数字对商品进行管理:");
-            int m1 = sc.nextInt();
-            switch(m1){
-                case 1:
-                    break;
-
-                case 2:
-                    break;
-
-                case 9:
-                    flag = false;
-                    td.homeMenu();
-                    continue;
-            }
-        }
 
     }
 
-    public void goodsInCartMenu(){
+    public static void goodsInCartMenu(){
         System.out.println("*************************");
         System.out.println("     **购物车管理**");
         System.out.println("     1--添加商品到购物车");
@@ -63,20 +44,62 @@ public class TestDemo {
 	//Idea project commit
 	public static void main(String[] args) {
 
+        Scanner sc = new Scanner(System.in);
+        boolean  flag = true;
+
+        GoodsManage gm = new GoodsManage();
+        GoodsInCart gic = new GoodsInCart();
+
         // 循环输出操作主菜单提示
         while(flag){
-            td.homeMenu();
+            homeMenu();
             System.out.println("请输入对应数字进行操作:");
             int m = sc.nextInt();
             switch (m){
                 case 1:
                     //执行进入商品管理菜单
-                    td.goodsManageMenu();
-                    break;
+                    goodsManageMenu();
+                    boolean b =true;
+                    while(b){
+                        try{
+                            int n = sc.nextInt();
+                            switch (n){
+                                //商品信息导入
+                                case 1:
+                                    System.out.println("商品信息导入中...");
+                                    gm.importGoods();
+                                    System.out.println("信息导入成功！");
+                                    goodsManageMenu();
+                                    break;
+                                //显示所有商品信息
+                                case 2:
+                                    System.out.println("显示所有商品信息");
+                                    System.out.println("所有商品信息为：");
+                                    gm.displayAllGoods();
+                                    goodsManageMenu();
+                                    break;
+                                //返回上一级菜单
+                                case 9:
+                                    b = false;
+                                    homeMenu(); //显示主菜单
+                                    break;
+
+                                default:
+                                    System.out.println("你输入的数据有误！请重新输入");
+
+
+                            }
+                        }catch (Exception e){
+                            System.out.println("请输入正确的选项");
+                            sc.next();
+
+                        }
+                    }break;
 
                 case 2:
                     //执行进入购物车菜单
-                    td.goodsInCartMenu();
+                    goodsInCartMenu();
+                    b = true;
                     break;
 
                 case 0:

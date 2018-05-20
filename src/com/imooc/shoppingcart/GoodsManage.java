@@ -16,6 +16,10 @@ public class GoodsManage {
 		this.goodsSet = goodsSet;
 	}
 
+	public GoodsManage() {
+
+	}
+
 	//getter和setter方法
 	public Set<Goods> getGoodsSet() {
 		return goodsSet;
@@ -42,6 +46,9 @@ public class GoodsManage {
 	//显示所有商品信息方法
 	public void displayAllGoods() {
 		Iterator<Goods> it = goodsSet.iterator();
+		if(goodsSet.isEmpty()){
+			System.out.println("请先导入商品信息！");
+		}
 		while(it.hasNext()) {
 			System.out.println(it.next());
 		}
