@@ -81,7 +81,6 @@ public class TestDemo {
                                 //返回上一级菜单
                                 case 9:
                                     b = false;
-                                    homeMenu(); //显示主菜单
                                     break;
 
                                 default:
