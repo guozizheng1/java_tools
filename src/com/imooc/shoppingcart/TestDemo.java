@@ -99,6 +99,17 @@ public class TestDemo {
                     //执行进入购物车菜单
                     goodsInCartMenu();
                     b = true;
+                    while(b){
+                        try{
+                            int n = sc.nextInt();
+                            switch (n){
+                                case 1:
+
+                            }
+                        }catch (Exception e){
+
+                        }
+                    }
                     break;
 
                 case 0:
